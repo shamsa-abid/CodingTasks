@@ -15,6 +15,8 @@ public class Tokenizer {
 	}
 
 	private static ArrayList<String> tokenize(String sourceCode) {
+		
+		ArrayList<String> tokens = new ArrayList<String>();
 		Lexer lexer = new Lexer();		
 		
 		try {
@@ -28,6 +30,7 @@ public class Tokenizer {
 				else {
 					
 					System.out.println("   " + token.getTokenString() );
+					tokens.add(token.getTokenString());
 				}
 			}
 			
@@ -35,6 +38,6 @@ public class Tokenizer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return tokens;
 	}
 }
