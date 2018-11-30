@@ -21,7 +21,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         RefDiff refDiff = new RefDiff();
         GitService gitService = new GitServiceImpl();
-        try (Repository repository = gitService.cloneIfNotExists("F:/tmp/mycode", "https://github.com/shamsa-abid/CodingTasks.git")) {
+        try (Repository repository = gitService.cloneIfNotExists("F:/tmp/dp", "https://github.com/iluwatar/java-design-patterns.git")) {
         	
            
             
