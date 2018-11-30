@@ -10,8 +10,11 @@ public class Tokenizer {
 
 	public static void main(String args[])
 	{
+		
 		String sourceCode = "for (int alpha=0;";
 		ArrayList<String> tokens = tokenize(sourceCode);
+		ArrayList<ArrayList<String>> listOfTokenLists = new ArrayList<ArrayList<String>>();
+		
 	}
 
 	private static ArrayList<String> tokenize(String sourceCode) {
