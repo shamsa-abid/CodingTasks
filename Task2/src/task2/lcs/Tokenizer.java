@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import ca.pfv.spmf.algorithms.sequentialpatterns.prefixspan.AlgoBIDEPlus;
 import exceptions.AnalyzerException;
 import lexer.Lexer;
 import token.Token;
@@ -45,20 +46,20 @@ public class Tokenizer {
 					{
 						//for each line parsed keep building a token ID hyphen separated sequence and write it to a file
 						int tokenID = tokensMap.indexOf(token);
-						hyphenated = hyphenated.concat(tokenID + " -");
+						hyphenated = hyphenated.concat(tokenID + " -1 ");
 					}
 					else
 					{
 						tokensMap.add(token);
 						int tokenID = tokensMap.size();
-						hyphenated = hyphenated.concat(tokenID + " -");
+						hyphenated = hyphenated.concat(tokenID + " -1 ");
 					}
 				}
 				
 				if(!hyphenated.contentEquals(""))
 				{
-				hyphenated = hyphenated.substring(0, hyphenated.lastIndexOf(" -"));
-				
+				//hyphenated = hyphenated.substring(0, hyphenated.lastIndexOf(" -"));
+					hyphenated = hyphenated.concat("-2");
 				bwr.write(hyphenated + "\n");
 				}
 				
@@ -73,6 +74,15 @@ public class Tokenizer {
 		
 		
 		//when the file is ready put it through BIDE to obtain the frequent sequential patterns
+		int minsup = 2; // we use a minsup of 2 sequences (50 % of the database size)		
+		AlgoBIDEPlus algo  = new AlgoBIDEPlus();  //		
+        // if you set the following parameter to true, the sequence ids of the sequences where
+        // each pattern appears will be shown in the result
+        algo.setShowSequenceIdentifiers(false);		
+		// execute the algorithm
+		algo.runAlgorithm("hyphenated_output.txt", ".//outputofBIDE.txt", minsup);    
+		algo.printStatistics();
+		
 		//parse the output of BIDE to recover the actual sequence of tokens, its count and depth and write to csv
 		String sourceCode = "for (int alpha=0;";
 		ArrayList<String> tokens = tokenize(sourceCode);
