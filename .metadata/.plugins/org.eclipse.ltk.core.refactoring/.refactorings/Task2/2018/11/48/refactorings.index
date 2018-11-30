@@ -4,3 +4,5 @@
 1543590143140	Rename resource 'contextPrefixSpan.txt'
 1543590515571	Rename resource 'contextPrefixSpan.text'
 1543590737211	Delete elements
+1543591975175	Extract method 'getSourceFileNames'
+1543598728518	Delete element
