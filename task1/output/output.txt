@@ -1,4 +1,9 @@
-Walking all commits starting with 3 refs: [SymbolicRef[HEAD -> refs/heads/master=f7c9c6b89d347dc14bcd38958055a06136d6f217], Ref[refs/heads/master=f7c9c6b89d347dc14bcd38958055a06136d6f217], Ref[refs/remotes/origin/master=f7c9c6b89d347dc14bcd38958055a06136d6f217]]
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/F:/Task1/task1/lib/slf4j-nop-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/shamsa/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.7/58f588119ffd1702c77ccab6acb54bfb41bed8bd/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.helpers.NOPLoggerFactory]
+Walking all commits starting with 3 refs: [Ref[HEAD=c5a27c47fffeec067eea4a4197f4d82441e84fa2], Ref[refs/heads/master=f7c9c6b89d347dc14bcd38958055a06136d6f217], Ref[refs/remotes/origin/master=f7c9c6b89d347dc14bcd38958055a06136d6f217]]
 Commit: commit f7c9c6b89d347dc14bcd38958055a06136d6f217 1543556641 ----sp
 Commit: commit 0053fe0bce6ca5b8c21d98620a2b6b08344535e6 1543556504 ----sp
 Rename Method	task1/src/main/java/test.Calculator#add(int, int)	task1/src/main/java/test.Calculator#addTwoNumbers(int, int)

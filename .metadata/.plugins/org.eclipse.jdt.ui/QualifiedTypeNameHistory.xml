@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.jgit.revwalk.RevWalk"/>
+<fullyQualifiedTypeName name="org.refactoringminer.api.GitService"/>
+<fullyQualifiedTypeName name="org.refactoringminer.util.GitServiceImpl"/>
+<fullyQualifiedTypeName name="org.refactoringminer.rm1.GitHistoryRefactoringMinerImpl"/>
+<fullyQualifiedTypeName name="org.refactoringminer.api.GitHistoryRefactoringMiner"/>
+<fullyQualifiedTypeName name="org.eclipse.jgit.lib.Repository"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.eclipse.jgit.revwalk.RevCommit"/>
+<fullyQualifiedTypeName name="org.refactoringminer.api.Refactoring"/>
+<fullyQualifiedTypeName name="refdiff.core.api.RefactoringHandler"/>
+<fullyQualifiedTypeName name="org.refactoringminer.api.RefactoringHandler"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+</qualifiedTypeNameHistroy>
