@@ -1,0 +1,17 @@
+package refdiff.task1;
+
+import java.util.List;
+
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.refactoringminer.api.GitHistoryRefactoringMiner;
+import org.refactoringminer.api.GitService;
+import org.refactoringminer.api.Refactoring;
+import org.refactoringminer.rm1.GitHistoryRefactoringMinerImpl;
+import org.refactoringminer.util.GitServiceImpl;
+
+public class RefMinerTest {
+	public static void main(String args[]){
+		
+	}
+}
