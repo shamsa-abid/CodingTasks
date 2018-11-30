@@ -23,7 +23,10 @@ public class App {
         GitService gitService = new GitServiceImpl();
         try (Repository repository = gitService.cloneIfNotExists("F:/tmp/dp", "https://github.com/iluwatar/java-design-patterns.git")) {
         	
-           
+            List<SDRefactoring> refactorings = refDiff.detectAtCommit(repository, "2aa9e78dddb410b48f6d06c3ea6de1b8f6db4ffc");
+            for (SDRefactoring r : refactorings) {
+                System.out.printf("%s\t%s\t%s\n", r.getRefactoringType().getDisplayName(), r.getEntityBefore().key(), r.getEntityAfter().key());
+            }
             
             Collection<Ref> allRefs = repository.getAllRefs().values();
 
@@ -36,12 +39,6 @@ public class App {
 	             int count = 0;
 	             for( RevCommit commit : revWalk ) {
 	                 System.out.println("Commit: " + commit);
-	                 
-	                 List<SDRefactoring> refactorings = refDiff.detectAtCommit(repository, commit.name());
-	                 for (SDRefactoring r : refactorings) {
-	                     System.out.printf("%s\t%s\t%s\n", r.getRefactoringType().getDisplayName(), r.getEntityBefore().key(), r.getEntityAfter().key());
-	                 }
-	                 
 	                 count++;
 	             }
 	             System.out.println("Had " + count + " commits");

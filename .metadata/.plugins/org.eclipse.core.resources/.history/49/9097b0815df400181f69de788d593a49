@@ -37,7 +37,7 @@ public class App {
 	             for( RevCommit commit : revWalk ) {
 	                 System.out.println("Commit: " + commit);
 	                 
-	                 List<SDRefactoring> refactorings = refDiff.detectAtCommit(repository, commit.name());
+	                 List<SDRefactoring> refactorings = refDiff.detectAtCommit(repository, commit.toString());
 	                 for (SDRefactoring r : refactorings) {
 	                     System.out.printf("%s\t%s\t%s\n", r.getRefactoringType().getDisplayName(), r.getEntityBefore().key(), r.getEntityAfter().key());
 	                 }
