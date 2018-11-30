@@ -1,4 +1,6 @@
-Walking all commits starting with 3 refs: [SymbolicRef[HEAD -> refs/heads/master=dac78f866193ed171e318c4a3adadf5e01e85759], Ref[refs/heads/master=dac78f866193ed171e318c4a3adadf5e01e85759], Ref[refs/remotes/origin/master=dac78f866193ed171e318c4a3adadf5e01e85759]]
+Walking all commits starting with 3 refs: [SymbolicRef[HEAD -> refs/heads/master=0053fe0bce6ca5b8c21d98620a2b6b08344535e6], Ref[refs/heads/master=0053fe0bce6ca5b8c21d98620a2b6b08344535e6], Ref[refs/remotes/origin/master=0053fe0bce6ca5b8c21d98620a2b6b08344535e6]]
+Commit: commit 0053fe0bce6ca5b8c21d98620a2b6b08344535e6 1543556504 ----sp
+Rename Method	task1/src/main/java/test.Calculator#add(int, int)	task1/src/main/java/test.Calculator#addTwoNumbers(int, int)
 Commit: commit dac78f866193ed171e318c4a3adadf5e01e85759 1543556014 ----sp
 Commit: commit 5500cf2a26dfbacb9c0189f35cd1c0c5558a3439 1543555659 ----sp
 Commit: commit 962e63f7cc47f5ec52396ee1f2c9a9f19089d74b 1543555612 ----sp
@@ -6,4 +8,4 @@ Commit: commit 1db3b9f739aeb69160d07966421807325c34bc54 1543555382 ----sp
 Commit: commit 902fd8179511944ee7790f2cfc0a4422d5bcee8c 1543553834 ----sp
 Commit: commit 9c18f3f15a944512c9f6e2574b0165e9984d74eb 1543550530 ----sp
 Commit: commit c5a27c47fffeec067eea4a4197f4d82441e84fa2 1543549663 ----sp
-Had 7 commits
+Had 8 commits
