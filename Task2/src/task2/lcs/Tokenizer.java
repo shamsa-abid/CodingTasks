@@ -8,6 +8,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.googlecode.concurrenttrees.radix.node.concrete.DefaultCharSequenceNodeFactory;
+import com.googlecode.concurrenttrees.solver.LCSubstringSolver;
 
 import ca.pfv.spmf.algorithms.sequentialpatterns.prefixspan.AlgoBIDEPlus;
 import exceptions.AnalyzerException;
@@ -18,75 +22,49 @@ public class Tokenizer {
 
 	public static void main(String args[]) throws FileNotFoundException, IOException
 	{
+		LCSubstringSolver solver = new LCSubstringSolver(new DefaultCharSequenceNodeFactory());
 		//read a file filesList.txt containing a list of source code files
 		String inputFile = "F:/Task1/Task2/src/task2/lcs/filesList.txt";
 		ArrayList<String> fileNames = getSourceFileNames(inputFile);
 		
-		//read all java files and for every line tokenize it and assign a unique ID to each token and store in an arraylist
-		ArrayList<String> tokensMap = new ArrayList<String>();
+		File file = new File("LCS_output.txt");
+		FileWriter fr = new FileWriter(file, true);
+		BufferedWriter bwr = new BufferedWriter(fr);
+		
+		//iterate over files, tokenize and add tokens of the file to the solver as a string document
 		for(String fileName: fileNames)
 		{
 			BufferedReader br = new BufferedReader(new FileReader(fileName));		 
 			String statement;
-			File file = new File("hyphenated_output.txt");
-			FileWriter fr = new FileWriter(file, true);
-			BufferedWriter bwr = new BufferedWriter(fr);
+			
+			ArrayList<String> completeFileTokens = new ArrayList<String>();
 			
 			while ((statement = br.readLine()) != null)
 			{
 				if(!statement.contentEquals(""))
 				{
-				ArrayList<String> tokens = tokenize(statement);
-				//for each token parsed, before adding token in list check if exists otherwise add it to the list
-				String hyphenated = "";
-				for(String token: tokens)
-				{
-					
-					if(tokensMap.contains(token))
-					{
-						//for each line parsed keep building a token ID hyphen separated sequence and write it to a file
-						int tokenID = tokensMap.indexOf(token);
-						hyphenated = hyphenated.concat(tokenID + " -1 ");
-					}
-					else
-					{
-						tokensMap.add(token);
-						int tokenID = tokensMap.size();
-						hyphenated = hyphenated.concat(tokenID + " -1 ");
-					}
+					completeFileTokens.addAll(tokenize(statement));		
+				
+				
 				}
-				
-				if(!hyphenated.contentEquals(""))
-				{
-				//hyphenated = hyphenated.substring(0, hyphenated.lastIndexOf(" -"));
-					hyphenated = hyphenated.concat("-2");
-				bwr.write(hyphenated + "\n");
-				}
-				
-				
-			}
 			
 			}
 			bwr.close();
 			fr.close();
+			//add a document to the solver where each java file is a document
+			solver.add(completeFileTokens.toString());
+			
 		}
 		
+		List<String> longestCommonSubstrings=solver.getLongestCommonSubstrings(solver.getLongestCommonSubstring().toString());
+		System.out.println("Number of Longest Common Token Subsequences: "+longestCommonSubstrings.size());
+		for(String lcs: longestCommonSubstrings)
+		{			
+			int tokenCount=lcs.toString().split(" ").length;	
+			System.out.println(lcs);
+		}				
 		
-		
-		//when the file is ready put it through BIDE to obtain the frequent sequential patterns
-		int minsup = 2; // we use a minsup of 2 sequences (50 % of the database size)		
-		AlgoBIDEPlus algo  = new AlgoBIDEPlus();  //		
-        // if you set the following parameter to true, the sequence ids of the sequences where
-        // each pattern appears will be shown in the result
-        algo.setShowSequenceIdentifiers(false);		
-		// execute the algorithm
-		algo.runAlgorithm("hyphenated_output.txt", ".//outputofBIDE.txt", minsup);    
-		algo.printStatistics();
-		
-		//parse the output of BIDE to recover the actual sequence of tokens, its count and depth and write to csv
-		String sourceCode = "for (int alpha=0;";
-		ArrayList<String> tokens = tokenize(sourceCode);
-		ArrayList<ArrayList<String>> listOfTokenLists = new ArrayList<ArrayList<String>>();
+	
 		
 	}
 
