@@ -20,6 +20,7 @@ java -jar RefactoringDetector.jar https://github.com/shamsa-abid/CodingTasks.git
 4. Your output file will be generated in the same Task1 folder and you will see some output display in the command prompt as well
 
 #### Deliverables
+To check my code please refer to the main file Task1\src\main\java\refdiff\task1\App.java
 I executed my code on the following two repositories
 1. https://github.com/shamsa-abid/CodingTasks.git
 2. https://github.com/danilofes/refactoring-toy-example.git
@@ -54,6 +55,7 @@ java -jar LongestCommonTokenSequenceDetector.jar F:/Task1/Task2/3TestFiles LCS_o
 4. Your output file will be generated in the same Task2 folder and you will see some output display in the command prompt as well
 
 #### Deliverables
+To check my code please refer to the main file Task2\src\_1_Task2\LongestCommmonTokenSequenceDetector.java
 1. There are three test folders available namely 3TestFiles, 10TestFiles and 100TestFiles containing java files for testing
 2. The output files generated on each of these test folders are 3outputTestFiles.csv, 10outputTestFiles.csv and 100outputTestFiles.csv
 3. The source code that tokenizes the input source code is reused and not written from scratch. Although I have written a C lexer back in my undergrad days, I decided to save time and reuse code.
