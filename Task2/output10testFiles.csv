@@ -1,0 +1,2 @@
+score, tokens, count, source code
+5.024212257384523,9,3,DatabaseAccessLayer dbLayer = DatabaseAccessLayer . getInstance ( ) ;

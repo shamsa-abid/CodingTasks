@@ -25,6 +25,10 @@ public enum TokenType {
 	OpeningCurlyBrace,
 
 	ClosingCurlyBrace,
+	
+	//OpeningSquareBrace,
+
+	//ClosingSquareBrace,
 
 	DoubleConstant,
 

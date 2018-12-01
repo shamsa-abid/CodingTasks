@@ -54,6 +54,11 @@ public class Lexer {
 				position = token.getEnd();
 				result.add(token);
 			}
+			int slength = source.length();
+			//System.out.println(slength);
+			//System.out.println(position);
+			
+			
 		} while (token != null && position != source.length());
 		if (position != source.length()) {
 			throw new AnalyzerException("Lexical error at position # "+ position, position);
@@ -128,6 +133,8 @@ public class Lexer {
 		regEx.put(TokenType.Comma, "(,).*");
 		regEx.put(TokenType.OpeningCurlyBrace, "(\\{).*");
 		regEx.put(TokenType.ClosingCurlyBrace, "(\\}).*");
+		//regEx.put(TokenType.OpeningSquareBrace, "(\\[).*");
+		//regEx.put(TokenType.ClosingSquareBrace, "(\\]).*");
 		regEx.put(TokenType.DoubleConstant, "\\b(\\d{1,9}\\.\\d{1,32})\\b.*");
 		regEx.put(TokenType.IntConstant, "\\b(\\d{1,9})\\b.*");
 		regEx.put(TokenType.Void, "\\b(void)\\b.*");
