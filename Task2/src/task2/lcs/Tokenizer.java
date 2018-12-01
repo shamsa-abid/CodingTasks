@@ -43,7 +43,9 @@ public class Tokenizer {
 			{
 				if(!statement.contentEquals(""))
 				{
-					completeFileTokens.addAll(tokenize(statement));		
+					if(!statement.startsWith("import"))
+						
+						completeFileTokens.addAll(tokenize(statement));		
 				
 				
 				}
@@ -96,14 +98,14 @@ public class Tokenizer {
 					//System.out.println("   " + token.getTokenString());
 				else {
 					
-					System.out.println("   " + token.getTokenString() );
+					//System.out.println("   " + token.getTokenString() );
 					tokens.add(token.getTokenString());
 				}
 			}
 			
 		} catch (AnalyzerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return tokens;
 	}
