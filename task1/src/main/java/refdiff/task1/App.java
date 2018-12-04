@@ -13,7 +13,10 @@ import java.util.List;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.treewalk.TreeWalk;
 
 import refdiff.core.RefDiff;
 import refdiff.core.api.GitService;
@@ -23,9 +26,9 @@ import refdiff.core.util.GitServiceImpl;
 public class App {
 	public static void main(String[] args) throws Exception {
 
-		//String repoURL = "https://github.com/mikaelhg/openblocks.git";
-		//String outputFile = "output/openblocks.csv";
-		//String cloneDir = "F:/mitopenblocks/openblocks";
+		String repoURL = "https://github.com/mikaelhg/openblocks.git";
+		String outputFile = "output/openblocks.csv";
+		String cloneDir = "F:/mitopenblocks/openblocks";
 
 
 		//String repoURL = "https://github.com/jfree/jfreechart.git";
@@ -33,15 +36,16 @@ public class App {
 		//String cloneDir = "F:/jfreechartclone/jfreecharts";	
 
 
-		String repoURL = "https://github.com/danilofes/refactoring-toy-example.git";
-		String outputFile = "output/toy.csv";
-		String cloneDir = "tmp/toy";
+		//String repoURL = "https://github.com/danilofes/refactoring-toy-example.git";
+		//String outputFile = "output/toy.csv";
+		//String cloneDir = "tmp/toy";
 
 		if(args.length > 0)
 		{
-			repoURL = args[0];
+						
+			cloneDir = args[0];
 			outputFile = args[1];
-			cloneDir = args[2];
+			repoURL = args[2];
 		}
 
 		RefDiff refDiff = new RefDiff();
@@ -53,9 +57,8 @@ public class App {
 		BufferedWriter br = new BufferedWriter(fr);
 		br.write("Commit SHA, Java File, Old function signature, New function signature\n");
 
-		try (Repository repository = gitService.cloneIfNotExists(cloneDir, repoURL)) {
-
-
+		try (Repository repository = gitService.cloneIfNotExists(cloneDir, repoURL)) {			
+			
 			Collection<Ref> allRefs = repository.getAllRefs().values();
 
 			// a RevWalk allows to walk over commits based on some filtering that is defined
@@ -70,16 +73,26 @@ public class App {
 				int addParamPefactoringCount = 0;
 
 				for( RevCommit commit : revWalk ) {
-					//System.out.println("Commit: " + commit);
-
+					//System.out.println("Commit: " + commit);	    
+				       
+					
 					List<SDRefactoring> refactorings = refDiff.detectAtCommit(repository, commit.name());
 					for (SDRefactoring r : refactorings) {
 						refactoringCount ++;
 
+						
 						if(r.getRefactoringType().name() == "RENAME_METHOD" )
 						{
 							if(isAddParameterRefactoring(r))
 							{
+								/*RevTree tree = commit.getTree();								
+								TreeWalk treeWalk = new TreeWalk(repository);
+								treeWalk.addTree(tree);
+								 treeWalk.setRecursive(true);
+							        while (treeWalk.next()) {
+							            System.out.println("found: " + treeWalk.getPathString());							          
+							        } */
+								
 								addParamPefactoringCount ++;
 								String before = r.getEntityBefore().key().toString();
 								String after = r.getEntityAfter().key().toString();
