@@ -194,7 +194,7 @@ public class LongestCommmonTokenSequenceDetector {
 
 		} catch (AnalyzerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return tokens;
 	}
