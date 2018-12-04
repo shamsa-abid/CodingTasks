@@ -130,11 +130,13 @@ public class Lexer {
 		regEx.put(TokenType.OpenBrace, "(\\().*");
 		regEx.put(TokenType.CloseBrace, "(\\)).*");
 		regEx.put(TokenType.Semicolon, "(;).*");
+		regEx.put(TokenType.Colon, "(:).*");
 		regEx.put(TokenType.Comma, "(,).*");
+		regEx.put(TokenType.DoubleQuote, "(\").*");
 		regEx.put(TokenType.OpeningCurlyBrace, "(\\{).*");
 		regEx.put(TokenType.ClosingCurlyBrace, "(\\}).*");
-		//regEx.put(TokenType.OpeningSquareBrace, "(\\[).*");
-		//regEx.put(TokenType.ClosingSquareBrace, "(\\]).*");
+		regEx.put(TokenType.OpeningSquareBrace, "(\\[).*");
+		regEx.put(TokenType.ClosingSquareBrace, "(\\]).*");
 		regEx.put(TokenType.DoubleConstant, "\\b(\\d{1,9}\\.\\d{1,32})\\b.*");
 		regEx.put(TokenType.IntConstant, "\\b(\\d{1,9})\\b.*");
 		regEx.put(TokenType.Void, "\\b(void)\\b.*");
@@ -164,6 +166,6 @@ public class Lexer {
 		regEx.put(TokenType.ExclameEqual, "(\\!=).*");
 		regEx.put(TokenType.Greater, "(>).*");
 		regEx.put(TokenType.Less, "(<).*");
-		regEx.put(TokenType.Identifier, "\\b([a-zA-Z]{1}[0-9a-zA-Z_]{0,31})\\b.*");
+		regEx.put(TokenType.Identifier, "\\b([a-zA-Z_]{1}[0-9a-zA-Z_]{0,31})\\b.*");
 	}
 }

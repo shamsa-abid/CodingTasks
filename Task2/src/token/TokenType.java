@@ -26,9 +26,11 @@ public enum TokenType {
 
 	ClosingCurlyBrace,
 	
-	//OpeningSquareBrace,
+	OpeningSquareBrace,
 
-	//ClosingSquareBrace,
+	ClosingSquareBrace,
+	
+	DoubleQuote,
 
 	DoubleConstant,
 
@@ -85,6 +87,8 @@ public enum TokenType {
 	Else,
 
 	Semicolon,
+	
+	Colon,
 
 	Comma,
 

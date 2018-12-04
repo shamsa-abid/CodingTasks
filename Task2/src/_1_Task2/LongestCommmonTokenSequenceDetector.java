@@ -29,13 +29,12 @@ public class LongestCommmonTokenSequenceDetector {
 
 		if(args.length > 0)
 		{
-
 			dir = new File(args[0]);
 			outfileName = args[1];
 		}
 		else
 		{
-			dir = new File("F:/Task1/Task2/3TestFiles");
+			dir = new File("F:/Task1/Task2/10TestFiles");
 
 		}
 		File[] directoryListing = dir.listFiles();
@@ -91,14 +90,16 @@ public class LongestCommmonTokenSequenceDetector {
 		}
 
 
-		List<String> longestCommonSubstrings=solver.getLongestCommonSubstrings(solver.getLongestCommonSubstring().toString());
+		List<String> longestCommonSubstrings = solver.getLongestCommonSubstrings(solver.getLongestCommonSubstring().toString());
+		
 		System.out.println("No. of Longest Common Subsequences: "+longestCommonSubstrings.size());
 		System.out.println();
 
 		for(String lcs: longestCommonSubstrings)
 		{			
 
-			System.out.println("Repeating sequence: " + lcs);
+			String sourceCode = replaceTokenNameWithSymbols(lcs);
+			System.out.println("Repeating sequence: " + sourceCode);
 			int countOfOccurrences = getCountOfOccurrences(lcs, allFilesTokens);
 			System.out.println("No of occurrences: " + countOfOccurrences);
 			int tokenCount = lcs.toString().split(" ").length;
@@ -113,6 +114,17 @@ public class LongestCommmonTokenSequenceDetector {
 		bwr.close();
 		fr.close();
 
+	}
+
+	private static String replaceTokenNameWithSymbols(String longestCommonSubstring) {
+		
+			if (longestCommonSubstring.contains("OpeningSquareBrace"))
+				longestCommonSubstring = longestCommonSubstring.replace( "OpeningSquareBrace", "[");
+			if (longestCommonSubstring.contains("ClosingSquareBrace"))
+				longestCommonSubstring = longestCommonSubstring.replace("ClosingSquareBrace", "]");
+			
+	
+		return longestCommonSubstring;
 	}
 
 	private static int getCountOfOccurrences(String lcs, ArrayList<String> allFilesTokens) {
@@ -160,7 +172,23 @@ public class LongestCommmonTokenSequenceDetector {
 				else {
 
 					//System.out.println("   " + token.getTokenString() );
-					tokens.add(token.getTokenString());
+					if(//token.getTokenString().contentEquals("{")||
+						//	token.getTokenString().contentEquals("}")||
+							token.getTokenString().contentEquals("[")||
+							token.getTokenString().contentEquals("]")
+							//token.getTokenString().contentEquals("+")||
+							//token.getTokenString().contentEquals("*")||
+							//token.getTokenString().contentEquals("<")||
+							//token.getTokenString().contentEquals(">")||
+							//token.getTokenString().contentEquals("!=")||
+							//token.getTokenString().contentEquals("==")||
+							//token.getTokenString().contentEquals("=")
+							)
+					{
+						tokens.add(token.getTokenType().toString());
+					}
+					else
+						tokens.add(token.getTokenString());
 				}
 			}
 
