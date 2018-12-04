@@ -18,7 +18,7 @@ For example:
 java -jar AddParameterRefactoringDetector.jar F:/tmp/repoClone output.csv cloned
 ```
 
-4. If a repo needs to be clones then mention the repo URL and execute the command 
+4. If a repo needs to be cloned then mention the repo URL and execute the command 
 ```
 java -jar AddParameterRefactoringDetector.jar <directory name to clone repo> <name of output.csv file> <repo URL> 
 ```
