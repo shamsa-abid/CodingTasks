@@ -52,12 +52,12 @@ The results from these repositories can be found in the following path Task1/out
 2. Navigate to the folder Task2 in command prompt
 3. Execute the command 
 ```
-java -jar LongestCommonTokenSequenceDetector.jar <absolute path of directory conatining code files> <name of output.csv file>
+java -jar LCTokenSequenceDetector.jar <absolute path of directory conatining code files> <name of output.csv file>
 ```
 
 For example:
 ```
-java -jar LongestCommonTokenSequenceDetector.jar F:/Task1/Task2/3TestFiles LCS_output.csv
+java -jar LCTokenSequenceDetector.jar F:/Task1/Task2/3TestFiles output.csv
 ```
 4. Your output file will be generated in the same Task2 folder and you will see some output display in the command prompt as well
 
