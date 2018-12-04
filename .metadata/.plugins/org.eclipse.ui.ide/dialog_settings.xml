@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="F:\Task1\refdiff-core"/>
+		<item value="F:\RefDiff-master\RefDiff-master\refdiff-core"/>
 		<item value="F:\RefactoringMiner-master\RefactoringMiner-master"/>
 		<item value="F:\refactoring-toy-example-master (1)\refactoring-toy-example-master"/>
 	</list>
